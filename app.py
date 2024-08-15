@@ -13,15 +13,13 @@ def index():
 
 @app.route('/submit', methods=['POST','GET'])
 def submit():
-
     file_name = request.args.get('fileName', '')
     file_type = request.args.get('fileType', '')
     job_description = request.args.get('job_description', '')
     additional_information = request.args.get('additional_information', '')
     experience = request.args.get('experience', '')
-    extreacted_text = request.args.get('ext-text', '')
-    
-    
+    extreacted_text = request.args.get('ext-text', '')  
+      
     response_data = {'score_card': {'ats': {'score': 42,
     'description': 'Moderate ATS compatibility potential',
     'reason': 'Lack of direct keyword matches',
