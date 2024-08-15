@@ -22,7 +22,7 @@ def submit():
     extreacted_text = request.args.get('ext-text', '')
     
     
-    response_data =""" {'score_card': {'ats': {'score': 42,
+    response_data = {'score_card': {'ats': {'score': 42,
     'description': 'Moderate ATS compatibility potential',
     'reason': 'Lack of direct keyword matches',
     'improvementTip': 'Use more job-specific keywords'},
@@ -152,9 +152,9 @@ def submit():
     'link': 'https://example.com/john-doe'},
     {'name': 'Jane Smith',
     'title': 'UX Designer',
-    'link': 'https://example.com/john-doe'}]}"""
+    'link': 'https://example.com/john-doe'}]}
     
-    return jsonify(json.loads(response_data))
+    return jsonify(response_data)
     
 
 if __name__ == '__main__':
