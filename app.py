@@ -13,7 +13,16 @@ cors = CORS(app, resources={
 def index():
     return render_template('index.html')
 
-def get_data():
+
+@app.route('/submit', methods=['POST'])
+def submit():
+    file_name = request.args.get('fileName', '')
+    file_type = request.args.get('fileType', '')
+    job_description = request.args.get('job_description', '')
+    additional_information = request.args.get('additional_information', '')
+    experience = request.args.get('experience', '')
+    extracted_text = request.args.get('ext-text', '')
+    
     
     data = {'score_card': {'ats': {'score': 42,
     'description': 'Moderate ATS compatibility potential',
@@ -147,20 +156,8 @@ def get_data():
     'title': 'UX Designer',
     'link': 'https://example.com/john-doe'}]}
     
-    
-    return data
-@app.route('/submit', methods=['POST'])
-def submit():
-    file_name = request.args.get('fileName', '')
-    file_type = request.args.get('fileType', '')
-    job_description = request.args.get('job_description', '')
-    additional_information = request.args.get('additional_information', '')
-    experience = request.args.get('experience', '')
-    extracted_text = request.args.get('ext-text', '')
-    
-    output = get_data()
-    print("output",output)
-    return jsonify(output)
+    print("output",data)
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run(debug=True)
