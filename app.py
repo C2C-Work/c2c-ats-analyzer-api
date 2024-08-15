@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 
 app = Flask(__name__)
+import json
 
 # Configure CORS with specific options
 CORS(app, resources={r"/submit": {"origins": "*"}})
@@ -149,7 +150,7 @@ def submit():
         ]
     }
     
-    return jsonify(response_data)
+    return jsonify(json.loads(response_data))
     
 
 if __name__ == '__main__':
