@@ -13,7 +13,7 @@ cors = CORS(app, resources={
 def index():
     return render_template('index.html')
 
-def get_data(job_description, additional_information, experience, extracted_text):
+def get_data():
     
     data = {'score_card': {'ats': {'score': 42,
     'description': 'Moderate ATS compatibility potential',
@@ -158,7 +158,8 @@ def submit():
     experience = request.args.get('experience', '')
     extracted_text = request.args.get('ext-text', '')
     
-    output = get_data(job_description, additional_information, experience, extracted_text)
+    output = get_data()
+    print("output",output)
     return jsonify(output)
 
 if __name__ == '__main__':
