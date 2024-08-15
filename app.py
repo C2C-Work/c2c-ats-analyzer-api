@@ -12,15 +12,15 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    
+
     try:
+        file_name = request.args.get('fileName', '')
+        file_type = request.args.get('fileType', '')
+        job_description = request.args.get('job_description', '')
+        additional_information = request.args.get('additional_information', '')
+        experience = request.args.get('experience', '')
+        extreacted_text = request.args.get('ext-text', '')
         
-        file_name = data.get('fileName', '')
-        file_type = data.get('fileType', '')
-        job_description = data.get('job_description', '')
-        additional_information = data.get('additional_information', '')
-        experience = data.get('experience', '')
-        extracted_text = data.get('ext-text', '')
         
         response_data = {
             'score_card': {
