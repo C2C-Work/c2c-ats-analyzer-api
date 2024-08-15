@@ -12,11 +12,9 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    if request.content_type != 'application/json':
-        return jsonify({'error': 'Content-Type must be application/json'}), 415  # 415 Unsupported Media Type
-
+    
     try:
-        data = request.json
+        
         file_name = data.get('fileName', '')
         file_type = data.get('fileType', '')
         job_description = data.get('job_description', '')
