@@ -9,6 +9,8 @@ cors = CORS(app, resources={
     r"/submit": {"origins": "*"}  # Allow all origins for the /submit endpoint
 })
 
+@app.route('/submit', methods=['POST'])
+
 
 def get_data(job_description, additional_information, experience, extracted_text):
     
