@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import calculations
+
 import api_work
 app = Flask(__name__)
 
