@@ -21,7 +21,7 @@ def submit():
     extracted_text = request.args.get('ext-text', '')
     
     output = api_work.get_data(job_description, additional_information, experience, extracted_text)
-    return output
+    return jsonify(output)
 
 if __name__ == '__main__':
     app.run(debug=True)

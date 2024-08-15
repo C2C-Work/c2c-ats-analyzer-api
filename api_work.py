@@ -133,4 +133,4 @@ def get_data(job_description, additional_information, experience, extracted_text
     'link': 'https://example.com/john-doe'}]}
     
     
-    return jsonify(data)
+    return data
