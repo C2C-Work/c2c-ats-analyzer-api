@@ -16,15 +16,15 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    file_name = request.args.get('fileName', '')
-    file_type = request.args.get('fileType', '')
-    job_description = request.args.get('job_description', '')
-    additional_information = request.args.get('additional_information', '')
-    experience = request.args.get('experience', '')
-    extracted_text = request.args.get('ext-text', '')
+    data = request.json
+    file_name = data.get('fileName', '')
+    file_type = data.get('fileType', '')
+    job_description = data.get('job_description', '')
+    additional_information = data.get('additional_information', '')
+    experience = data.get('experience', '')
+    extracted_text = data.get('ext-text', '')
     
-    
-    data = {'score_card': {'ats': {'score': 42,
+    responce_data = {'score_card': {'ats': {'score': 42,
     'description': 'Moderate ATS compatibility potential',
     'reason': 'Lack of direct keyword matches',
     'improvementTip': 'Use more job-specific keywords'},
@@ -156,8 +156,8 @@ def submit():
     'title': 'UX Designer',
     'link': 'https://example.com/john-doe'}]}
     
-    print("output",data)
-    return jsonify(data)
+    print("output",responce_data)
+    return jsonify(responce_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
